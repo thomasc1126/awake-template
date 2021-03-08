@@ -1,71 +1,56 @@
-<template>
-  <div id="contact-page" class="page-wrapper contact-page content-page">
-    <site-hero
-      title="Contact Us"
-      subtitle="Example Contact Page"
-      image="/uploads/contact-hero.jpg"
-    ></site-hero>
-    <main-section theme="sidebar-right">
-      <template v-slot:default>
-        <div class="tile is-ancestor">
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title">
-                Hello!
-              </p>
-              <p class="subtitle">
-                What can I do for you?
-              </p>
-              <figure class="image is-1by1 ">
-                <opti-image
-                  :src="require('~/assets/uploads/contact-person.jpg').src"
-                  :srcset="
-                    require('~/assets/uploads/contact-person.jpg').srcSet
-                  "
-                />
-              </figure>
-              <br />
-              <div class="content">
-                <p>
-                  <strong>
-                    Edit this page in<code>/pages/contact.vue</code>to fit your
-                    needs.
-                  </strong>
-                </p>
-                <p>
-                  This form doesn't actually work but would be easy enough to
-                  slap an action on to have it post wherever you'd like. Or put
-                  the netlify attribute on it and have netlify handle all your
-                  form submissions...
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="tile is-parent is-8">
-            <article class="tile is-child box">
-              <contact-form />
-            </article>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="/dist/nft-card.min.js"></script>
+
+    <title>OpenSea Embeddable NFT example</title>
+    <style media="screen">
+        body {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-align: center;
+          color: #2c3e50;
+        }
+        .header {
+            padding-top: 5vh;
+        }
+        .card-container {
+          width: 670px;
+          margin: auto;
+          padding-top: 5vh;
+        }
+
+    </style>
+</head>
+<body>
+<h1 class="title header">Embeddable NFTs from OpenSea</h1>
+<h3>Show users any crypto collectible and let them buy it straight from your site, using a minimal-dependency web component!</h3>
+<div class="columns is-centered">
+    <div class="column is-8 ">
+        <div class="editor">
         </div>
-      </template>
-      <template v-slot:sidebar>
-        <h3 class="subtitle is-4">
-          Latest Posts
-        </h3>
-        <!-- Latest Posts -->
-        <posts-grid :per-row="1" :number="2" />
-      </template>
-    </main-section>
-  </div>
-</template>
-<script>
-import ContactForm from '~/components/ContactForm'
-export default {
-  head() {
-    return {
-      title: `Contact | ${this.$siteConfig.siteName}`
-    }
-  },
-  components: { ContactForm }
-}
-</script>
+    </div>
+</div>
+<div class="card-container">
+    <div style="padding-top: 5vh;"></div>
+    <nft-card
+            tokenAddress="0x2a46f2ffd99e19a89476e2f62270e0a35bbf0756"
+            tokenId="22371"
+            network="mainnet"
+    >
+    </nft-card>
+    <div style="padding-top: 5vh;"></div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="index.js"></script>
+</body>
+</html>
